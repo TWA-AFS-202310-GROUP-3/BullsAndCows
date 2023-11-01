@@ -19,10 +19,10 @@ namespace BullsAndCows
         {
             var bulls = 0;
             var cows = 0;
-            if (guess.Equals(secret))
-            {
-                return "4A0B";
-            }
+            //if (guess.Equals(secret))
+            //{
+            //    return "4A0B";
+            //}
 
             for (var i = 0; i < secret.Length; i++)
             {
