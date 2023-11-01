@@ -18,10 +18,10 @@ namespace BullsAndCows
         {
             int bulls = 0;
             int cows = 0;
-            if (guess.Equals(secret))
-            {
-                return "4A0B";
-            }
+            //if (guess.Equals(secret))
+            //{
+            //    return "4A0B";
+            //}
 
             for (int i = 0; i < secret.Length; i++)
             {
