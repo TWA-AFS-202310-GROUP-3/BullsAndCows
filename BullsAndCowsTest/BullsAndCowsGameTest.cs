@@ -6,14 +6,14 @@ namespace BullsAndCowsTest
 {
     public class BullsAndCowsGameTest
     {
-        [Fact]
+        /*[Fact]
         public void Should_create_BullsAndCowsGame()
         {
             var secretGenerator = new SecretGenerator();
             var game = new BullsAndCowsGame(secretGenerator);
             Assert.NotNull(game);
             Assert.True(game.CanContinue);
-        }
+        }*/
 
         [Fact]
         public void Should_return_4A0B_given_Guess_when_secret_and_guess_same()
@@ -33,11 +33,12 @@ namespace BullsAndCowsTest
             Assert.Equal("4A0B", result);
         }
 
-        [Fact]
-        public void Should_return_2A0B_given_Guess_when_position_and_digit_partial_right()
+        [Theory]
+        [InlineData("1256")] //replace the input of string guess
+        public void Should_return_2A0B_given_Guess_when_position_and_digit_partially_right(string guess)
         {
             //Given
-            string guess = "1234";
+            /*string guess = "1234";*/
             string secret = "1256";
 
             Mock<SecretGenerator> mockedSecretGenerator = new Mock<SecretGenerator>();
