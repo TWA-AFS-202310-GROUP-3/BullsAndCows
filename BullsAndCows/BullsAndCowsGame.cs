@@ -20,8 +20,27 @@ namespace BullsAndCows
             {
                 return "4A0B";
             }
+            else
+            {
+                int bulls = GetCorrectPositionDigitAmount(guess);
+                return $"{bulls}A0B";
+            }
 
             return string.Empty;
+        }
+
+        private int GetCorrectPositionDigitAmount(string guess)
+        {
+            int count = 0;
+            for (int i = 0; i < guess.Length; i++)
+            {
+                if (guess[i].Equals(secretNumber[i]))
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
     }
 }
