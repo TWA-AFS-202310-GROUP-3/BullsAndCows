@@ -94,8 +94,23 @@ namespace BullsAndCowsTest
             Assert.Equal("1A1B", result);
         }
 
-        //Invalid length input
-        //Invalid digit input
-        //Duplicate digit input
+        [Theory]
+        [InlineData("4321")]
+        public void Should_return_0A4B_when_guess_given_guess_digit_position_all_incorrect(string guessNumber)
+        {
+            //Given
+            string secretNumber = "1234";
+
+            Mock<SecretGenerator> mockSecretGenerator = new Mock<SecretGenerator>();
+            mockSecretGenerator.Setup(secret => secret.GenerateSecret()).Returns(secretNumber);
+
+            var game = new BullsAndCowsGame(mockSecretGenerator.Object);
+
+            //When
+            string result = game.Guess(guessNumber);
+
+            //Then
+            Assert.Equal("0A4B", result);
+        }
     }
 }
