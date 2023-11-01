@@ -10,11 +10,21 @@ namespace BullsAndCows
             this.secretGenerator = secretGenerator;
         }
 
+        public string GetSecret()
+        {
+            return this.secretGenerator.GenerateSecret();
+        }
+
         public bool CanContinue => true;
 
         public string Guess(string guess)
         {
-            throw new NotImplementedException();
+            if (GetSecret().Equals(guess))
+            {
+                return "4A0B";
+            }
+
+            return string.Empty;
         }
     }
 }
