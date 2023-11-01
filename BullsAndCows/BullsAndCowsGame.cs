@@ -31,7 +31,7 @@ namespace BullsAndCows
                 }
             }
 
-            /*for (int i = 0; i < secret.Length; i++)
+            for (int i = 0; i < secret.Length; i++)
             {
                 if (guess.IndexOf(secret[i]) >= 0 && guess.IndexOf(secret[i]) != i) // has matched number && number not in the correct position(not equal to i)
                 {
@@ -39,8 +39,7 @@ namespace BullsAndCows
                 }
             }
 
-            return $"{bulls}A{cows}B"; //$ means can be changed*/
-            return $"{bulls}A{cows}B";
+            return $"{bulls}A{cows}B"; //$ means can be changed
         }
     }
 }
