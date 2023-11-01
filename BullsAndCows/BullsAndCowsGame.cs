@@ -5,23 +5,23 @@ namespace BullsAndCows
     public class BullsAndCowsGame
     {
         private readonly SecretGenerator secretGenerator;
-        //private readonly string secret;
+        private readonly string secret;
         public BullsAndCowsGame(SecretGenerator secretGenerator)
         {
             this.secretGenerator = secretGenerator;
-            //secret = secretGenerator.GenerateSecret();
+            secret = secretGenerator.GenerateSecret();
         }
 
         public bool CanContinue => true;
 
         public string Guess(string guess)
         {
-            //if (guess.Equals(secret))
-            //{
-            //    return "4A0B";
-            //}
+            if (guess.Equals(secret))
+            {
+                return "4A0B";
+            }
 
-            //return string.Empty;
+            return string.Empty;
             throw new NotImplementedException();
         }
     }
