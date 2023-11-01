@@ -150,5 +150,26 @@ namespace BullsAndCowsTest
             //Then
             Assert.Equal("0A2B", result);
         }
+
+        [Theory]
+        [InlineData("56431")]
+        [InlineData("564")]
+        [InlineData("")]
+        public void Should_print_warning_when_guess_given_input_length_incorrect(string guessNumber)
+        {
+            //Given
+            string secretNumber = "1234";
+
+            Mock<SecretGenerator> mockSecretGenerator = new Mock<SecretGenerator>();
+            mockSecretGenerator.Setup(secret => secret.GenerateSecret()).Returns(secretNumber);
+
+            var game = new BullsAndCowsGame(mockSecretGenerator.Object);
+
+            //When
+            string result = game.Guess(guessNumber);
+
+            //Then
+            Assert.Equal("Wrong Input, input again", result);
+        }
     }
 }
