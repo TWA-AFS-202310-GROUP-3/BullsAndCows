@@ -1,5 +1,6 @@
 using BullsAndCows;
 using Moq;
+using System.Linq;
 using Xunit;
 
 namespace BullsAndCowsTest
@@ -209,5 +210,20 @@ namespace BullsAndCowsTest
             //Then
             Assert.Equal("Wrong Input, input again", result);
         }
+
+        [Fact]
+        public void Should_generate_4_digits_secretNumber_without_duplicate_number()
+        {
+            //Given
+            var secretGenerator = new SecretGenerator();
+
+            //When
+            var secretNumber = secretGenerator.GenerateSecret();
+
+            //Then
+            Assert.Equal(4, secretNumber.Length);
+            Assert.Equal(4, secretNumber.Distinct().Count());
+        }
+
     }
 }
