@@ -191,5 +191,23 @@ namespace BullsAndCowsTest
             Assert.Equal("Wrong Input, input again", result);
         }
 
+        [Theory]
+        [InlineData("123A")]
+        public void Should_print_warning_when_guess_given_input_contains_non_digits(string guessNumber)
+        {
+            //Given
+            string secretNumber = "1234";
+
+            Mock<SecretGenerator> mockSecretGenerator = new Mock<SecretGenerator>();
+            mockSecretGenerator.Setup(secret => secret.GenerateSecret()).Returns(secretNumber);
+
+            var game = new BullsAndCowsGame(mockSecretGenerator.Object);
+
+            //When
+            string result = game.Guess(guessNumber);
+
+            //Then
+            Assert.Equal("Wrong Input, input again", result);
+        }
     }
 }
