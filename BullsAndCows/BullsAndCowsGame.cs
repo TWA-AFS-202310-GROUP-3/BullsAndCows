@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace BullsAndCows
 {
     public class BullsAndCowsGame
     {
+        private readonly string warningMessage = "Wrong Input, input again";
         private readonly string secretNumber;
         private readonly SecretGenerator secretGenerator;
         public BullsAndCowsGame(SecretGenerator secretGenerator)
@@ -16,6 +18,11 @@ namespace BullsAndCows
 
         public string Guess(string guess)
         {
+            if (!CheckInputValid(guess))
+            {
+                return warningMessage;
+            }
+
             int bulls = GetCorrectPositionDigitAmount(guess);
             int cows = GetIncorrectPositionDigitAmount(guess);
             return $"{bulls}A{cows}B";
@@ -48,6 +55,11 @@ namespace BullsAndCows
             }
 
             return count;
+        }
+
+        private bool CheckInputValid(string guess)
+        {
+            return guess.Length == 4;
         }
     }
 }
