@@ -19,12 +19,23 @@ namespace BullsAndCows
 
         public string Guess(string guess)
         {
-            if (GetSecret().Equals(guess))
+            var secret = GetSecret();
+            var bulls = 0;
+
+            if (secret.Equals(guess))
             {
                 return "4A0B";
             }
 
-            return string.Empty;
+            for (int i = 0; i < guess.Length; i++)
+            {
+                if (guess[i] == secret[i])
+                {
+                    bulls++;
+                }
+            }
+
+            return $"{bulls}A0B";
         }
     }
 }
