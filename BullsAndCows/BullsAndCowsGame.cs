@@ -60,7 +60,7 @@ namespace BullsAndCows
 
         private bool CheckInputValid(string guess)
         {
-            return guess.Length == 4 && guess.Distinct().Count() == 4;
+            return guess.Length == 4 && guess.Distinct().Count() == 4 && guess.All(char.IsDigit);
         }
     }
 }
