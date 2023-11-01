@@ -16,17 +16,9 @@ namespace BullsAndCows
 
         public string Guess(string guess)
         {
-            if (guess.Equals(secretNumber))
-            {
-                return "4A0B";
-            }
-            else
-            {
-                int bulls = GetCorrectPositionDigitAmount(guess);
-                return $"{bulls}A0B";
-            }
-
-            return string.Empty;
+            int bulls = GetCorrectPositionDigitAmount(guess);
+            int cows = GetIncorrectPositionDigitAmount(guess);
+            return $"{bulls}A{cows}B";
         }
 
         private int GetCorrectPositionDigitAmount(string guess)
@@ -35,6 +27,21 @@ namespace BullsAndCows
             for (int i = 0; i < guess.Length; i++)
             {
                 if (guess[i].Equals(secretNumber[i]))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        private int GetIncorrectPositionDigitAmount(string guess)
+        {
+            int count = 0;
+            for (int i = 0; i < guess.Length; i++)
+            {
+                var index = secretNumber.IndexOf(guess[i]);
+                if (index >= 0 && index != i)
                 {
                     count++;
                 }
