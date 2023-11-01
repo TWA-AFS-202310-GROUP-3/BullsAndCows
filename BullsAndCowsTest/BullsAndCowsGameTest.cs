@@ -113,7 +113,6 @@ namespace BullsAndCowsTest
             Assert.Equal("0A4B", result);
         }
 
-
         [Theory]
         [InlineData("1243")]
         public void Should_return_2A2B_when_guess_given_guess_digit_position_partial_correct(string guessNumber)
