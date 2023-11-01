@@ -6,6 +6,7 @@ namespace BullsAndCows
     {
         public virtual string GenerateSecret()
         {
+
             throw new NotImplementedException();
         }
     }
