@@ -31,11 +31,16 @@ namespace BullsAndCowsTest
             Assert.Equal("4A0B", result);
         }
 
-        [Fact]
-        public void Should_return_2A0B_when_guess_given_guess_number_have_two_correct()
+        //[Fact]
+        [Theory]
+        [InlineData("1256")]
+        [InlineData("5634")]
+        [InlineData("5236")]
+        [InlineData("1564")]
+        public void Should_return_2A0B_when_guess_given_guess_number_have_two_correct(string guessNumber)
         {
             //Given
-            string guessNumber = "1256";
+            //string guessNumber = "1256";
             string secret = "1234";
             Mock<SecretGenerator> mockedSecretGenerator = new Mock<SecretGenerator>();
             mockedSecretGenerator.Setup(generator => generator.GenerateSecret()).Returns(secret);
@@ -44,6 +49,21 @@ namespace BullsAndCowsTest
             string result = game.Guess(guessNumber);
             //Then
             Assert.Equal("2A0B", result);
+        }
+
+        [Theory]
+        [InlineData("1562")]
+        public void Should_return_1A1B_when_guess_given_guess_number_have_one_correct_in_A_and_B(string guessNumber)
+        {
+            //Given
+            string secret = "1234";
+            Mock<SecretGenerator> mockedSecretGenerator = new Mock<SecretGenerator>();
+            mockedSecretGenerator.Setup(generator => generator.GenerateSecret()).Returns(secret);
+            var game = new BullsAndCowsGame(mockedSecretGenerator.Object);
+            //When
+            string result = game.Guess(guessNumber);
+            //Then
+            Assert.Equal("1A1B", result);
         }
     }
 }
