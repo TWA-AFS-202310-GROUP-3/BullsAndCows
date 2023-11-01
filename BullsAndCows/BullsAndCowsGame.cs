@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks.Sources;
 
 namespace BullsAndCows
 {
@@ -17,6 +18,7 @@ namespace BullsAndCows
         public string Guess(string guess)
         {
             var bulls = 0;
+            var cows = 0;
             if (guess.Equals(secret))
             {
                 return "4A0B";
@@ -30,7 +32,15 @@ namespace BullsAndCows
                 }
             }
 
-            return $"{bulls}A0B";
+            for (int i = 0; i < secret.Length; i++)
+            {
+                if (guess.IndexOf(secret[i]) >= 0 && guess.IndexOf(secret[i]) != i)
+                {
+                    cows++;
+                }
+            }
+
+            return $"{bulls}A{cows}B";
         }
     }
 }
