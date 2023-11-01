@@ -6,7 +6,6 @@ namespace BullsAndCowsTest
 {
     public class BullsAndCowsGameTest
     {
-
         [Fact]
         public void Should_return_4A0B_when_guess_given_guess_number_and_secret_same()
         {
