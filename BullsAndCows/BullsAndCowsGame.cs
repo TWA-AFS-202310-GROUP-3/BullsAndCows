@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace BullsAndCows
@@ -59,7 +60,7 @@ namespace BullsAndCows
 
         private bool CheckInputValid(string guess)
         {
-            return guess.Length == 4;
+            return guess.Length == 4 && guess.Distinct().Count() == 4;
         }
     }
 }
