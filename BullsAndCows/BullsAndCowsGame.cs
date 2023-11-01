@@ -21,6 +21,7 @@ namespace BullsAndCows
         {
             var secret = GetSecret();
             var bulls = 0;
+            var cows = 0;
 
             if (secret.Equals(guess))
             {
@@ -33,9 +34,14 @@ namespace BullsAndCows
                 {
                     bulls++;
                 }
+
+                if (guess.IndexOf(secret[i]) >= 0 && guess.IndexOf(secret[i]) != i)
+                {
+                    cows++;
+                }
             }
 
-            return $"{bulls}A0B";
+            return $"{bulls}A{cows}B";
         }
     }
 }
