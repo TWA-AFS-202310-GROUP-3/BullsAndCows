@@ -34,10 +34,24 @@ namespace BullsAndCowsTest
             Assert.Equal("4A0B", result);
         }
 
-        //should return 4A0B when value all correct and in correction position
-        //should return 0A0B when value all wrong
-        //should return 0AyB when value have y correct digit but wrong position
-        //should return xA0B when value have x correct digit in correction position
+        [Fact]
+        public void Should_return_0A0B_when_guess_given_guess_all_incorrect()
+        {
+            //Given
+            string secretNumber = "1234";
+            string guessNumber = "5678";
+
+            Mock<SecretGenerator> mockSecretGenerator = new Mock<SecretGenerator>();
+            mockSecretGenerator.Setup(secret => secret.GenerateSecret()).Returns(secretNumber);
+
+            var game = new BullsAndCowsGame(mockSecretGenerator.Object);
+
+            //When
+            string result = game.Guess(guessNumber);
+
+            //Then
+            Assert.Equal("0A0B", result);
+        }
 
         //Invalid length input
         //Invalid digit input
