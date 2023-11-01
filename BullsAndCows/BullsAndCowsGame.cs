@@ -20,10 +20,8 @@ namespace BullsAndCows
             {
                 return "4A0B";
             }
-            else
-            {
-                return string.Empty;
-            }
+
+            return string.Empty;
         }
     }
 }
