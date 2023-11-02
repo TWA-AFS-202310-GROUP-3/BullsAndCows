@@ -92,7 +92,7 @@ namespace BullsAndCowsTest
 
         [Theory]
         [InlineData("4321")]
-        public void Should_return_0A0B_given_Guess_when_all_digit_correct_and_position_incorrect(string guess)
+        public void Should_return_0A4B_given_Guess_when_all_digit_correct_and_position_incorrect(string guess)
         {
             //Given
             string secret = "1234";
@@ -110,7 +110,7 @@ namespace BullsAndCowsTest
 
         [Theory]
         [InlineData("1324")]
-        public void Should_return_0A0B_given_Guess_when_all_digit_correct_and_position_partially_incorrect(string guess)
+        public void Should_return_2A2B_given_Guess_when_all_digit_correct_and_position_partially_incorrect(string guess)
         {
             //Given
             string secret = "1234";
@@ -128,7 +128,7 @@ namespace BullsAndCowsTest
 
         [Theory]
         [InlineData("4198")]
-        public void Should_return_0A0B_given_Guess_when_digit_partially_correct_and_all_position_incorrect(string guess)
+        public void Should_return_0A2B_given_Guess_when_digit_partially_correct_and_all_position_incorrect(string guess)
         {
             //Given
             string secret = "1234";
